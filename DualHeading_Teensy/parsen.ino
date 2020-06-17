@@ -88,6 +88,9 @@ if (gnssFixOk && diffSoln && relPosValid && isMoving)
     if ((c != '$') && (c != '!')) XOR ^= c;
   }
   // t = String(XOR, HEX);
+ 
+
+ 
   Serial.print(s);
   if (XOR < 16) Serial.print("0"); // add leading 0 if needed
   Serial.println(XOR, HEX);
@@ -112,10 +115,11 @@ if (gnssFixOk && diffSoln && relPosValid && isMoving)
     if ((c != '$') && (c != '!')) XOR ^= c;
   }
   // t = String(XOR, HEX);
+   
   Serial.print(s);
   if (XOR < 16) Serial.print("0"); // add leading 0 if needed
   Serial.println(XOR, HEX);
 
-
+ 
 
 }

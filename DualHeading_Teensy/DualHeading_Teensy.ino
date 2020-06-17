@@ -28,22 +28,25 @@ int i = 0;
 void setup() {
   Serial.begin(115200);
   Serial1.begin(115200);
-  Serial2.begin(460800);
+  Serial2.begin(115200);
 }
 
 void loop() {
    
-  
-  if (Serial1.available()) {     // If anything comes in Serial1 (pins 0 & 1)
-   Serial.write(Serial1.read());   // read it and send it out Serial (USB)
+  String input="";
+  if (Serial1.available()>0) {     // If anything comes in Serial1 (pins 0 & 1)
+     input = Serial1.readStringUntil('\n');
+     
+   Serial.println(input);   // read it and send it out Serial (USB)  
     }
     
- if (Serial.available()) {     // If anything comes in Serial1 (pins 0 & 1)
+ if (Serial.available()>0) {     // If anything comes in Serial1 (pins 0 & 1)
    Serial1.write(Serial.read());   // read it and send it out Serial (USB)
+   
     }
   
   
-  if (Serial2.available()) {
+  if (Serial2.available()>0) {
     incoming_char = Serial2.read();
     if (i < 4 && incoming_char == ackPacket[i]) {
       i++;
