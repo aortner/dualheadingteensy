@@ -3,7 +3,7 @@ float maxfehler=0.1; //wenn der fehler im anstand groesser als 10 cm ist wird ke
 double headingcorr = 90;  //verschiebung der Headingantenne
 
 
-// wenn die Headingantenne kein RTK Float hat wird auch keine Neigung berechnen
+// wenn die Headingantenne kein RTK Float hat wird auch keine Neigung berechnet
 // ubx-nav-relposned - hier kann man mit u-center sehen was Sache ist
 // zb abstand der Antenne, Heading und RTK Loesung
 
