@@ -1,5 +1,7 @@
 float abstand=1.00;  //abstand zwischen den antennen eingeben
 float maxfehler=0.1; //wenn der fehler im anstand groesser als 10 cm ist wird keine neigung mehr berechnet
+double headingcorr = 90;  //verschiebung der Headingantenne
+
 
 // wenn die Headingantenne kein RTK Float hat wird auch keine Neigung berechnen
 // ubx-nav-relposned - hier kann man mit u-center sehen was Sache ist
@@ -20,7 +22,7 @@ char c;
 char b;
 String t;
 double heading = 0;
-double headingcorr = 0;
+
 
 String rawbuffer = "";
 
