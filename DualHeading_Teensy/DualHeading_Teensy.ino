@@ -1,11 +1,26 @@
 float abstand=1.00;  //abstand zwischen den antennen eingeben
 float maxfehler=0.1; //wenn der fehler im anstand groesser als 10 cm ist wird keine neigung mehr berechnet
-double headingcorr = 90;  //verschiebung der Headingantenne
+double headingcorr = 0;  //verschiebung der Headingantenne
 
 
 // wenn die Headingantenne kein RTK Float hat wird auch keine Neigung berechnet
 // ubx-nav-relposned - hier kann man mit u-center sehen was Sache ist
 // zb abstand der Antenne, Heading und RTK Loesung
+
+
+//filter
+
+#define COMPASS_VALUES 8  // gibt an wie viele werte gefiltert werden sollen 8 = 1 sekunde
+
+int compass[COMPASS_VALUES];  
+
+int d;
+int d_sum;
+int kurs;
+
+
+
+//div
 
 int laenge;
 long timeofweek;

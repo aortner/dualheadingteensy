@@ -18,8 +18,58 @@ void parsen() {
   if (heading < 0) heading += 360;
 
 
+ //Serial.print("LastHeading: ");
+   // Serial.println(heading);
 
+if(heading>0)
+{
   
+  for (int i = COMPASS_VALUES; i >= 1; i--)
+  {
+    compass[i] = compass[i - 1];
+  //  Serial.print(i);
+   // Serial.print(" ");
+  //  Serial.println(compass[i]);
+  }
+  compass[0]=heading*100;
+}
+else
+{
+//  Serial.println("Kein Heading");
+}
+
+
+// calculate average course derivation
+kurs = compass[0];
+
+d_sum = 0;
+for (i=1; i<COMPASS_VALUES; i++)
+{
+  d = compass[i] - kurs;
+  if (d >  18000) d -= 36000;
+  if (d < -18000) d += 36000;
+  d_sum += d;
+}
+
+d_sum  += COMPASS_VALUES / 2;  // round (add 0.5)
+d_sum  /= (COMPASS_VALUES);
+kurs += d_sum;
+
+// normalize
+if (kurs >= 36000) kurs -= 36000;
+if (kurs <     0) kurs += 36000;
+
+
+heading=kurs;
+heading /=100;
+
+  //  Serial.print("Kurs: ");
+ //   Serial.println(heading);
+
+
+
+
+
 
   baseline  =  (long)ackPacket[20 + 6] ;
   baseline += (long)ackPacket[21 + 6] << 8;
