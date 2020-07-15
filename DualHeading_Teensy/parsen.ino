@@ -27,8 +27,8 @@ if(heading>0)
   for (int i = COMPASS_VALUES; i >= 1; i--)
   {
     compass[i] = compass[i - 1];
-  //  Serial.print(i);
-   // Serial.print(" ");
+   // Serial.print(i);
+  //Serial.print(" ");
   //  Serial.println(compass[i]);
   }
   compass[0]=heading*100;
@@ -43,12 +43,15 @@ else
 kurs = compass[0];
 
 d_sum = 0;
-for (i=0; i<COMPASS_VALUES; i++)
+for (i=1; i<COMPASS_VALUES; i++)
 {
   d = compass[i] - kurs;
   if (d >  18000) d -= 36000;
   if (d < -18000) d += 36000;
   d_sum += d;
+ 
+
+  
 }
 
 d_sum  += COMPASS_VALUES / 2;  // round (add 0.5)
