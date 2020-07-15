@@ -43,7 +43,7 @@ else
 kurs = compass[0];
 
 d_sum = 0;
-for (i=1; i<COMPASS_VALUES; i++)
+for (i=0; i<COMPASS_VALUES; i++)
 {
   d = compass[i] - kurs;
   if (d >  18000) d -= 36000;

@@ -3,9 +3,14 @@ float maxfehler=0.1; //wenn der fehler im anstand groesser als 10 cm ist wird ke
 double headingcorr = 0;  //verschiebung der Headingantenne
 
 
+
 // wenn die Headingantenne kein RTK Float hat wird auch keine Neigung berechnet
 // ubx-nav-relposned - hier kann man mit u-center sehen was Sache ist
 // zb abstand der Antenne, Heading und RTK Loesung
+
+//positionsantenne rechts
+//headingantenne links
+
 
 
 //filter
@@ -13,7 +18,6 @@ double headingcorr = 0;  //verschiebung der Headingantenne
 #define COMPASS_VALUES 8  // gibt an wie viele werte gefiltert werden sollen 8 = 1 sekunde
 
 int compass[COMPASS_VALUES];  
-
 int d;
 int d_sum;
 int kurs;
