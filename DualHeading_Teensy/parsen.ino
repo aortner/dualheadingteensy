@@ -6,7 +6,7 @@ void parsen() {
   int carrSoln;
   bool gnssFixOk, diffSoln, relPosValid, isMoving, refPosMiss, refObsMiss ;
   bool refPosHeadingValid, relPosNormalized;
-
+  double roll;
   heading  =  (long)ackPacket[24 + 6] ;
   heading += (long)ackPacket[25 + 6] << 8;
   heading += (long)ackPacket[26 + 6] << 16 ;
@@ -133,7 +133,7 @@ heading /=100;
 
   if (gnssFixOk && diffSoln && relPosValid && isMoving)
   {
-    // Serial.println("Alles OK! ");
+     //Serial.println("Alles OK! ");
   }
   else
   {
@@ -157,22 +157,25 @@ heading /=100;
   Serial.println(XOR, HEX);
 
 
+double p = sqrt(baseline*baseline-relPosD*relPosD);
 
-
+  
 
   if (carrSoln == 2) {
-    roll = (atan2(relPosD, baseline)) * 180 / 3.141592653589793238;
+   // roll = (atan2(relPosD, baseline)) * 180 / 3.141592653589793238;
+    roll = (atan(relPosD/p)) * 180 / 3.141592653589793238;
     roll *= -1;
-  }
+      }
   else roll = 0;
 
   if (baseline > abstand + maxfehler || baseline < abstand - maxfehler)
   {
     roll = 0;
-    //Serial.print("Baseline fehler :  " );
-    // Serial.println(baseline);
+    Serial.print("Baseline fehler :  " );
+    Serial.println(baseline);
 
   }
+
 
 
 

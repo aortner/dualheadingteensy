@@ -1,6 +1,6 @@
-float abstand=1.00;  //abstand zwischen den antennen eingeben
+float abstand=1.64;  //abstand zwischen den antennen eingeben
 float maxfehler=0.1; //wenn der fehler im anstand groesser als 10 cm ist wird keine neigung mehr berechnet
-double headingcorr = 0;  //verschiebung der Headingantenne
+double headingcorr = 90;  //verschiebung der Headingantenne
 
 
 
@@ -15,7 +15,7 @@ double headingcorr = 0;  //verschiebung der Headingantenne
 
 //filter
 
-#define COMPASS_VALUES 8  // gibt an wie viele werte gefiltert werden sollen 8 = 1 sekunde
+#define COMPASS_VALUES 4  // gibt an wie viele werte gefiltert werden sollen 8 = 1 sekunde
 
 int compass[COMPASS_VALUES];  
 int d;
